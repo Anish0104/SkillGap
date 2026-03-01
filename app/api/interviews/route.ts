@@ -138,9 +138,17 @@ Do not include markdown wrappers.`
         const response = await ai.models.generateContent({
             model: 'gemini-2.5-flash',
             contents: gradingPrompt,
+            config: {
+                responseMimeType: 'application/json',
+            }
         })
 
-        let cleanJson = (response.text || "").replace(/^```json\n/, '').replace(/\n```$/, '').trim()
+        let cleanJson = response.text || ""
+        const jsonMatch = cleanJson.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+            cleanJson = jsonMatch[0]
+        }
+
         let feedback
         try {
             feedback = JSON.parse(cleanJson)
