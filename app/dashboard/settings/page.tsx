@@ -272,8 +272,11 @@ export default function SettingsPage() {
                                 <Bell className="h-6 w-6" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-black">Job Alerts</h3>
-                                <p className="text-slate-500 text-sm">Get notified when hyper-relevant roles appear.</p>
+                                <div className="flex items-center gap-3">
+                                    <h3 className="text-xl font-black">Job Alerts</h3>
+                                    <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">Coming Soon</span>
+                                </div>
+                                <p className="text-slate-500 text-sm mt-1">Get notified when hyper-relevant roles appear.</p>
                             </div>
                         </div>
 
@@ -283,8 +286,8 @@ export default function SettingsPage() {
                                     <Label className="text-sm font-bold">Daily Opportunity Digest</Label>
                                     <p className="text-xs text-slate-500 font-medium">Receive a curated list of jobs matching your fit every morning.</p>
                                 </div>
-                                <div className="h-6 w-11 bg-blue-600 rounded-full relative cursor-pointer">
-                                    <div className="absolute right-1 top-1 h-4 w-4 bg-white rounded-full shadow-sm" />
+                                <div className="h-6 w-11 bg-slate-200 dark:bg-slate-700 rounded-full relative cursor-not-allowed">
+                                    <div className="absolute left-1 top-1 h-4 w-4 bg-white/50 rounded-full shadow-sm" />
                                 </div>
                             </div>
 
@@ -303,14 +306,17 @@ export default function SettingsPage() {
 
                 <TabsContent value="privacy" className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
                     <div className="grid gap-6">
-                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm rounded-3xl p-8">
-                            <h3 className="text-xl font-black mb-6">Data Sovereignty</h3>
+                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm rounded-3xl p-8 opacity-75">
+                            <div className="flex items-center gap-3 mb-6">
+                                <h3 className="text-xl font-black">Data Sovereignty</h3>
+                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">Coming Soon</span>
+                            </div>
                             <p className="text-slate-500 text-sm mb-8 leading-relaxed">You own your data. Export your professional profile, interaction history, and AI analysis results in high-fidelity JSON format at any time.</p>
                             <div className="flex flex-wrap gap-4">
-                                <Button variant="outline" className="rounded-xl h-12 px-6 gap-2 border-slate-200 font-bold">
+                                <Button variant="outline" disabled className="rounded-xl h-12 px-6 gap-2 border-slate-200 font-bold opacity-50">
                                     <Download className="h-4 w-4" /> Export All Data
                                 </Button>
-                                <Button variant="outline" className="rounded-xl h-12 px-6 gap-2 border-slate-200 font-bold">
+                                <Button variant="outline" disabled className="rounded-xl h-12 px-6 gap-2 border-slate-200 font-bold opacity-50">
                                     <Shield className="h-4 w-4" /> Transparency Report
                                 </Button>
                             </div>
@@ -319,7 +325,7 @@ export default function SettingsPage() {
                         <Card className="border-red-100 dark:border-red-900/20 bg-red-50/10 dark:bg-red-900/5 rounded-3xl p-8">
                             <h3 className="text-xl font-black text-red-900 dark:text-red-400 mb-2">Danger Zone</h3>
                             <p className="text-red-800/60 dark:text-red-400/60 text-sm mb-6 max-w-lg">Deleting your account will permanently erase all resumes, tracked applications, and AI historical data. This action cannot be reversed.</p>
-                            <Button variant="destructive" className="rounded-xl h-12 px-8 font-black shadow-lg shadow-red-500/20 gap-2">
+                            <Button disabled variant="destructive" className="rounded-xl h-12 px-8 font-black shadow-lg shadow-red-500/20 gap-2 opacity-50 cursor-not-allowed">
                                 <Trash2 className="h-4 w-4" /> Terminate Account
                             </Button>
                         </Card>
