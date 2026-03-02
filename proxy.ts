@@ -18,9 +18,12 @@ export async function updateSession(request: NextRequest) {
     // Create a Supabase client to refresh the session
     let supabase;
     try {
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL.trim();
+        const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY.trim();
+
         supabase = createServerClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+            supabaseUrl,
+            supabaseKey,
             {
                 cookies: {
                     getAll() {
