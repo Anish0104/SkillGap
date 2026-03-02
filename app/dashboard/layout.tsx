@@ -134,12 +134,42 @@ export default async function DashboardLayout({
                             </DropdownMenuContent>
                         </DropdownMenu>
                         <div className="h-4 w-px bg-slate-200 dark:bg-white/10 mx-1" />
-                        <div className="flex items-center gap-3">
-                            <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold shadow-sm ring-2 ring-slate-100 dark:ring-white/5">
-                                {userInitials}
-                            </div>
-                            <span className="text-sm font-bold text-slate-900 dark:text-slate-100 hidden sm:inline-block">{userName}</span>
-                        </div>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" className="relative h-10 w-fit rounded-full flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-white/5 pl-2 pr-4 border border-slate-200 dark:border-white/10">
+                                    <div className="h-7 w-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold shadow-sm ring-2 ring-slate-100 dark:ring-white/5">
+                                        {userInitials}
+                                    </div>
+                                    <span className="text-sm font-bold text-slate-900 dark:text-slate-100 hidden sm:inline-block">{userName}</span>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-56 border-slate-200 dark:border-slate-800">
+                                <DropdownMenuLabel className="font-normal">
+                                    <div className="flex flex-col space-y-1">
+                                        <p className="text-sm font-medium leading-none text-slate-900 dark:text-white">{userName}</p>
+                                        <p className="text-xs leading-none text-slate-500 dark:text-slate-400">
+                                            {user.email}
+                                        </p>
+                                    </div>
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator className="bg-slate-100 dark:bg-slate-800" />
+                                <DropdownMenuItem asChild className="cursor-pointer focus:bg-slate-50 dark:focus:bg-slate-900">
+                                    <Link href="/dashboard/settings" className="flex w-full items-center">
+                                        <Settings className="mr-2 h-4 w-4" />
+                                        <span>Settings</span>
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuSeparator className="bg-slate-100 dark:bg-slate-800" />
+                                <DropdownMenuItem asChild className="cursor-pointer text-rose-600 focus:bg-rose-50 dark:focus:bg-rose-950/50 focus:text-rose-600">
+                                    <form action="/auth/logout" method="post" className="w-full">
+                                        <button type="submit" className="flex w-full items-center">
+                                            <LogOut className="mr-2 h-4 w-4" />
+                                            <span>Log out</span>
+                                        </button>
+                                    </form>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </div>
                 </header>
 
