@@ -43,10 +43,15 @@ export async function updateSession(request: NextRequest) {
                 },
             }
         )
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to create Supabase client:', error)
         return NextResponse.json(
-            { error: 'Configuration Error', message: 'Invalid Supabase URL or Key. Please check .env.local' },
+            {
+                error: 'Configuration Error',
+                message: 'Invalid Supabase URL or Key. Please check .env.local',
+                details: error?.message || String(error),
+                providedUrl: process.env.NEXT_PUBLIC_SUPABASE_URL ? 'starts with ' + process.env.NEXT_PUBLIC_SUPABASE_URL.substring(0, 5) : 'missing'
+            },
             { status: 500 }
         )
     }
