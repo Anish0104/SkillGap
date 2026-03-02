@@ -156,9 +156,6 @@ export default function SettingsPage() {
                     <TabsTrigger value="notifications" className="rounded-xl px-6 h-12 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm gap-2 font-bold">
                         <Bell className="h-4 w-4" /> Alerts
                     </TabsTrigger>
-                    <TabsTrigger value="api" className="rounded-xl px-6 h-12 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm gap-2 font-bold">
-                        <Zap className="h-4 w-4" /> Usage & API
-                    </TabsTrigger>
                     <TabsTrigger value="privacy" className="rounded-xl px-6 h-12 data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:shadow-sm gap-2 font-bold">
                         <Lock className="h-4 w-4" /> Privacy
                     </TabsTrigger>
@@ -302,54 +299,6 @@ export default function SettingsPage() {
                             </div>
                         </div>
                     </Card>
-                </TabsContent>
-
-                <TabsContent value="api" className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
-                    <div className="grid gap-6 md:grid-cols-2">
-                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm rounded-3xl p-8">
-                            <h3 className="text-xl font-black mb-6 flex items-center gap-2">
-                                <Zap className="h-5 w-5 text-blue-500" /> Usage Metrics
-                            </h3>
-                            <div className="space-y-6">
-                                <div className="space-y-2">
-                                    <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
-                                        <span className="text-slate-500">AI Analyses Used</span>
-                                        <span className="text-blue-600">12 / 50</span>
-                                    </div>
-                                    <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-blue-600 rounded-full w-[24%]" />
-                                    </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
-                                        <span className="text-slate-500">Resume Optimizations</span>
-                                        <span className="text-indigo-600">8 / 20</span>
-                                    </div>
-                                    <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-indigo-600 rounded-full w-[40%]" />
-                                    </div>
-                                </div>
-                            </div>
-                        </Card>
-
-                        <Card className="border-slate-200 dark:border-slate-800 shadow-sm rounded-3xl p-8">
-                            <h3 className="text-xl font-black mb-6 flex items-center gap-2">
-                                <Lock className="h-5 w-5 text-indigo-500" /> API Configuration
-                            </h3>
-                            <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label className="text-xs font-black uppercase tracking-widest text-slate-400">Personal Access Token</Label>
-                                    <div className="flex gap-2">
-                                        <Input value="sk_skillgap_************************" readOnly className="rounded-xl h-11 border-slate-200 bg-slate-50 font-mono text-xs" />
-                                        <Button size="icon" variant="outline" className="h-11 w-11 rounded-xl">
-                                            <Download className="h-4 w-4" />
-                                        </Button>
-                                    </div>
-                                </div>
-                                <p className="text-[10px] text-slate-400 font-medium italic">Use this token for custom integrations with SkillGap CLI.</p>
-                            </div>
-                        </Card>
-                    </div>
                 </TabsContent>
 
                 <TabsContent value="privacy" className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
