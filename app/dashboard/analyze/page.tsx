@@ -313,9 +313,11 @@ export default function AnalyzePage() {
                                     <CardTitle className="text-lg">Detailed Analysis</CardTitle>
                                 </CardHeader>
                                 <CardContent className="p-6">
-                                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                                        {analysisResult.detailedAnalysis}
-                                    </p>
+                                    <div className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
+                                        {analysisResult.detailedAnalysis.split('\n').filter(p => p.trim()).map((paragraph, i) => (
+                                            <p key={i}>{paragraph}</p>
+                                        ))}
+                                    </div>
                                 </CardContent>
                             </Card>
                         </div>
