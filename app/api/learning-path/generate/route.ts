@@ -56,13 +56,16 @@ Do not include markdown wrappers like \`\`\`json. Just the raw JSON object.`
             contents: prompt,
             config: {
                 temperature: 0.7,
+                responseMimeType: "application/json",
             }
         })
 
         const rawContent = response.text || ""
         let cleanJson = rawContent
-        if (cleanJson.startsWith('```json')) {
-            cleanJson = cleanJson.replace(/^```json\n/, '').replace(/\n```$/, '')
+
+        // Sometimes Gemini still adds markdown blocks even with responseMimeType
+        if (cleanJson.startsWith('```')) {
+            cleanJson = cleanJson.replace(/^```(json)?\n?/, '').replace(/\n?```$/, '')
         }
         cleanJson = cleanJson.trim()
 

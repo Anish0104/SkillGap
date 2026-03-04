@@ -19,6 +19,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
+import ReactMarkdown from 'react-markdown'
 
 interface AnalysisResult {
     isMock?: boolean;
@@ -313,10 +314,10 @@ export default function AnalyzePage() {
                                     <CardTitle className="text-lg">Detailed Analysis</CardTitle>
                                 </CardHeader>
                                 <CardContent className="p-6">
-                                    <div className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
-                                        {analysisResult.detailedAnalysis.split('\n').filter(p => p.trim()).map((paragraph, i) => (
-                                            <p key={i}>{paragraph}</p>
-                                        ))}
+                                    <div className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed prose prose-slate dark:prose-invert max-w-none prose-p:my-2 prose-strong:text-slate-900 dark:prose-strong:text-white prose-ul:my-2 prose-li:my-0">
+                                        <ReactMarkdown>
+                                            {analysisResult.detailedAnalysis}
+                                        </ReactMarkdown>
                                     </div>
                                 </CardContent>
                             </Card>
